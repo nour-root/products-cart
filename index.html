@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Vite App</title>
+  </head>
+  <body class="bg-rose-100">
+    <main class="px-6 py-5">
+      <div id="desserts" class="flex-col items-start space-y-6">
+        <div id="head" class="flex justify-between items-center">
+          <h1 class="font-bold text-3xl">Desserts</h1>
+          <img
+            src="assets/images/icon-cart.svg"
+            class="w-9 h-9 cursor-pointer md:hidden"
+            alt=""
+          />
+        </div>
+        <div id="products" class="flex-col space-y-3">
+          <!-- <div id="order" class="w-fit flex-col space-y-10">
+            <div id="image" class="relative">
+              <img
+                src="/assets/images/image-waffle-mobile.jpg"
+                class="rounded-xl"
+                alt=""
+              />
+              <button
+                type="button"
+                id="add-to-cart"
+                class="absolute -bottom-4 right-1/2 translate-x-1/2 flex justify-center space-x-2 items-center w-[150px] h-[35px] border border-solid border-rose-400 rounded-r-2xl rounded-l-2xl bg-rose-50"
+              >
+                <img
+                  src="./public/assets/images/icon-add-to-cart.svg"
+                  class="inline-block"
+                  alt=""
+                />
+                <span class="font-medium">Add to Cart</span>
+              </button>
+            </div>
+            <div id="info">
+              <p class="text-rose-500">Waffle</p>
+              <p class="font-semibold text-rose-900">Waffle with Berries</p>
+              <span class="block text-Red font-semibold">$6.50</span>
+            </div>
+          </div> -->
+          <!-- quantity -->
+          <!-- <div id="order" class="w-fit flex-col space-y-10">
+            <div
+              id="image"
+              class="relative border-[3px] border-custom-red rounded-xl"
+            >
+              <img
+                src="/assets/images/image-waffle-mobile.jpg"
+                class="rounded-xl"
+                alt=""
+              />
+              <div
+                id="quantity"
+                class="absolute bg-custom-red -bottom-4 right-1/2 translate-x-1/2 flex justify-center items-center w-[150px] px-3 h-[35px] border border-solid border-rose-400 rounded-r-2xl rounded-l-2xl"
+              >
+                <button
+                  type="button"
+                  id="decrement"
+                  class="flex px-[2.5px] items-center justify-center w-4 h-4 border border-white rounded-lg"
+                >
+                  <img
+                    src="./public/assets/images/icon-decrement-quantity.svg"
+                    alt=""
+                  />
+                </button>
+                <span class="font-medium text-rose-50 mx-auto">1</span>
+                <button
+                  type="button"
+                  id="increment"
+                  class="flex p-[2.5px] items-center justify-center w-4 h-4 border border-white rounded-lg"
+                >
+                  <img
+                    src="./public/assets/images/icon-increment-quantity.svg"
+                    alt=""
+                  />
+                </button>
+              </div>
+            </div>
+            <div id="info">
+              <p class="text-rose-500">Waffle</p>
+              <p class="font-semibold text-rose-900">Waffle with Berries</p>
+              <span class="block text-custom-red font-semibold">$6.50</span>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </main>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
