@@ -4,3 +4,68 @@
 body{
     font-family: "Red Hat Text", serif;
 }
+#decrement:hover svg{
+ fill: #c73a0f;
+}
+#increment:hover svg{
+ fill: #c73a0f;
+}
+#Modal-confirme-order{
+  transform: scale(0);
+}
+::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+::-webkit-scrollbar-track {
+    background:   rgb(206, 201, 201);
+    border-radius: 3px;
+  }
+  
+::-webkit-scrollbar-thumb {
+    background:  #c73a0f;
+    border-radius: 10px;
+    
+   }
+#itemsCart_mobile::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+#itemsCart_mobile::-webkit-scrollbar-track {
+    background:   rgb(206, 201, 201);
+    border-radius: 3px;
+  }
+  
+#itemsCart_mobile::-webkit-scrollbar-thumb {
+    background:  #c73a0f;
+    border-radius: 10px;
+    
+   }
+#orders_mobile::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+#orders_mobile::-webkit-scrollbar-track {
+    background:   rgb(206, 201, 201);
+    border-radius: 3px;
+  }
+  
+#orders_mobile::-webkit-scrollbar-thumb {
+    background:  #c73a0f;
+    border-radius: 10px;
+    
+   }
+#orders_desktop::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+#orders_desktop::-webkit-scrollbar-track {
+    background:   rgb(206, 201, 201);
+    border-radius: 3px;
+  }
+  
+#orders_desktop::-webkit-scrollbar-thumb {
+    background:  #c73a0f;
+    border-radius: 10px;
+    
+   }

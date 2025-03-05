@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./src/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -14,89 +14,221 @@
     <title>Vite App</title>
   </head>
   <body class="bg-rose-100">
-    <main class="px-6 py-5">
-      <div id="desserts" class="flex-col items-start space-y-6">
+    <main class="px-8 py-5 sm:grid sm:grid-cols-3 gap-4 relative z-[9999]">
+      <div id="desserts" class="flex-col col-span-2 items-start space-y-6">
         <div id="head" class="flex justify-between items-center">
           <h1 class="font-bold text-3xl">Desserts</h1>
-          <img
-            src="assets/images/icon-cart.svg"
-            class="w-9 h-9 cursor-pointer md:hidden"
-            alt=""
-          />
+          <button type="button" onclick="showModal('Modal')">
+            <img
+              src="assets/images/icon-cart.svg"
+              class="w-9 h-9 cursor-pointer sm:hidden"
+              alt=""
+            />
+          </button>
         </div>
-        <div id="products" class="flex-col space-y-3">
-          <!-- <div id="order" class="w-fit flex-col space-y-10">
-            <div id="image" class="relative">
-              <img
-                src="/assets/images/image-waffle-mobile.jpg"
-                class="rounded-xl"
-                alt=""
-              />
-              <button
-                type="button"
-                id="add-to-cart"
-                class="absolute -bottom-4 right-1/2 translate-x-1/2 flex justify-center space-x-2 items-center w-[150px] h-[35px] border border-solid border-rose-400 rounded-r-2xl rounded-l-2xl bg-rose-50"
-              >
-                <img
-                  src="./public/assets/images/icon-add-to-cart.svg"
-                  class="inline-block"
-                  alt=""
-                />
-                <span class="font-medium">Add to Cart</span>
-              </button>
-            </div>
-            <div id="info">
-              <p class="text-rose-500">Waffle</p>
-              <p class="font-semibold text-rose-900">Waffle with Berries</p>
-              <span class="block text-Red font-semibold">$6.50</span>
-            </div>
-          </div> -->
-          <!-- quantity -->
-          <!-- <div id="order" class="w-fit flex-col space-y-10">
-            <div
-              id="image"
-              class="relative border-[3px] border-custom-red rounded-xl"
+        <div
+          id="products"
+          class="flex flex-col gap-10 sm:grid sm:grid-cols-3 sm:gap-x-4 sm:gap-y-14"
+        ></div>
+      </div>
+      <div
+        id=""
+        class="fixed top-10 right-5 w-[30%] max-sm:hidden sm:block ml-13 bg-rose-50 text-center py-4 px-5 rounded-lg h-fit col-span-1"
+      >
+        <div class="flex items-center justify-between">
+          <h2
+            class="num-orders text-xl text-custom-red font-bold mb-4 text-left"
+          >
+            Your Carts ( <span>0</span> )
+          </h2>
+          <button
+            type="button"
+            id="close"
+            onclick="hidModal('Modal')"
+            class="sm:hidden -mt-2 w-fit bg-custom-red text-white p-1 px-3 rounded-md"
+          >
+            <svg
+              height="24"
+              width="24"
+              viewBox="0 0 16 16"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              <img
-                src="/assets/images/image-waffle-mobile.jpg"
-                class="rounded-xl"
-                alt=""
+              <path
+                d="M13.069 5.157L8.384 9.768a.546.546 0 0 1-.768 0L2.93 5.158a.552.552 0 0 0-.771 0a.53.53 0 0 0 0 .759l4.684 4.61a1.65 1.65 0 0 0 2.312 0l4.684-4.61a.53.53 0 0 0 0-.76a.552.552 0 0 0-.771 0"
+                fill="currentColor"
+                fillRule="non-zero"
               />
-              <div
-                id="quantity"
-                class="absolute bg-custom-red -bottom-4 right-1/2 translate-x-1/2 flex justify-center items-center w-[150px] px-3 h-[35px] border border-solid border-rose-400 rounded-r-2xl rounded-l-2xl"
-              >
-                <button
-                  type="button"
-                  id="decrement"
-                  class="flex px-[2.5px] items-center justify-center w-4 h-4 border border-white rounded-lg"
-                >
-                  <img
-                    src="./public/assets/images/icon-decrement-quantity.svg"
-                    alt=""
-                  />
-                </button>
-                <span class="font-medium text-rose-50 mx-auto">1</span>
-                <button
-                  type="button"
-                  id="increment"
-                  class="flex p-[2.5px] items-center justify-center w-4 h-4 border border-white rounded-lg"
-                >
-                  <img
-                    src="./public/assets/images/icon-increment-quantity.svg"
-                    alt=""
-                  />
-                </button>
-              </div>
-            </div>
-            <div id="info">
-              <p class="text-rose-500">Waffle</p>
-              <p class="font-semibold text-rose-900">Waffle with Berries</p>
-              <span class="block text-custom-red font-semibold">$6.50</span>
-            </div>
-          </div> -->
+            </svg>
+          </button>
+        </div>
+        <div class="cart mt-4">
+          <ul id="itemsCart" class="flex flex-col space-y-3"></ul>
+          <div class="order-price flex py-4 px-3 justify-between items-center">
+            <span class="text-gray-700 text-sm">Order Total</span>
+            <span id="order-Total" class="text-2xl font-bold">$0</span>
+          </div>
+          <div
+            class="bg-[#caafa726] text-gray-700 px-2 py-3 rounded-lg text-sm w-11/12 mx-auto flex justify-center space-x-1"
+          >
+            <img src="/assets/images/icon-carbon-neutral.svg" alt="" />
+            <span>This is a <b>carbon-natural</b> delivery</span>
+          </div>
+          <button
+            type="button"
+            onclick="confirme_order_desktop('Modal-confirme-order')"
+            class="bg-custom-red mt-4 font-semibold rounded-full text-white w-5/6 py-3 hover:bg-orange-800"
+          >
+            Confirm Order
+          </button>
+        </div>
+        <div
+          class="empty-cart mt-10 w-full hidden flex-col items-center space-y-5"
+        >
+          <img
+            class="mx-auto"
+            src="/assets/images/illustration-empty-cart.svg"
+            alt=""
+            width="150"
+          />
+          <p class="text-rose-500 font-medium">
+            Your added items will appear here
+          </p>
         </div>
       </div>
+      <!-- mobile screen -->
+      <div
+        id="Modal"
+        class="fixed z-20 translate-y-[100%] max-sm:top-[10%] top-10 max-sm:w-full max-sm:left-0 max-sm:h-full right-5 w-[30%] sm:hidden ml-13 bg-rose-50 text-center py-4 px-5 rounded-lg h-fit col-span-1"
+      >
+        <div class="flex items-center justify-between">
+          <h2
+            class="num-orders_mobile text-xl text-custom-red font-bold mb-4 text-left"
+          >
+            Your Carts ( <span>0</span> )
+          </h2>
+          <button
+            type="button"
+            id="close"
+            onclick="hidModal('Modal')"
+            class="sm:hidden -mt-2 w-fit bg-custom-red text-white p-1 px-3 rounded-md"
+          >
+            <svg
+              height="24"
+              width="24"
+              viewBox="0 0 16 16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M13.069 5.157L8.384 9.768a.546.546 0 0 1-.768 0L2.93 5.158a.552.552 0 0 0-.771 0a.53.53 0 0 0 0 .759l4.684 4.61a1.65 1.65 0 0 0 2.312 0l4.684-4.61a.53.53 0 0 0 0-.76a.552.552 0 0 0-.771 0"
+                fill="currentColor"
+                fillRule="non-zero"
+              />
+            </svg>
+          </button>
+        </div>
+        <div class="cart_mobile mt-4 h-[800px]">
+          <div
+            id="itemsCart_mobile"
+            class="flex flex-col space-y-3 h-1/2 overflow-y-scroll"
+          ></div>
+          <div class="order-price flex py-4 px-3 justify-between items-center">
+            <span class="text-gray-700 text-sm">Order Total</span>
+            <span id="order-Total-mobile" class="text-2xl font-bold">$0</span>
+          </div>
+          <div
+            class="bg-[#caafa726] text-gray-700 px-2 py-3 rounded-lg text-sm w-11/12 mx-auto flex justify-center space-x-1"
+          >
+            <img src="/assets/images/icon-carbon-neutral.svg" alt="" />
+            <span>This is a <b>carbon-natural</b> delivery</span>
+          </div>
+          <button
+            type="button"
+            onclick="confirme_order('Modal-confirme-order-mobile')"
+            class="bg-custom-red mt-4 font-semibold rounded-full text-white w-5/6 py-3 hover:bg-orange-800"
+          >
+            Confirm Order
+          </button>
+        </div>
+        <div
+          class="empty-cart_mobile mt-10 w-full hidden flex-col items-center space-y-5"
+        >
+          <img
+            class="mx-auto"
+            src="/assets/images/illustration-empty-cart.svg"
+            alt=""
+            width="150"
+          />
+          <p class="text-rose-500 font-medium">
+            Your added items will appear here
+          </p>
+        </div>
+      </div>
+      <!-- start confime orders mobile -->
+      <div
+        id="Modal-confirme-order-mobile"
+        class="fixed z-20 flex flex-col space-y-6 translate-y-[100%] max-sm:top-[10%] top-10 max-sm:w-full max-sm:left-0 max-sm:h-full right-5 w-[30%] sm:hidden ml-13 bg-rose-50 text-center py-4 px-5 rounded-lg h-fit col-span-1"
+      >
+        <div class="flex flex-col flex-wrap text-left space-y-3">
+          <img
+            src="/assets/images/icon-order-confirmed.svg"
+            width="50"
+            alt=""
+          />
+          <p class="capitalize text-5xl font-bold w-2/3">order confirmed</p>
+          <span class="text-rose-400 text-xl">We hope you enjoy your food</span>
+        </div>
+        <div class="bg-rose-100 p-2 rounded-md">
+          <div id="orders_mobile" class="h-[300px] overflow-y-scroll"></div>
+          <div class="order-price flex py-4 px-3 justify-between items-center">
+            <span class="text-gray-800 text-sm">Order Total</span>
+            <span id="order-Total-confime-mobile" class="text-2xl font-bold"
+              >$0</span
+            >
+          </div>
+        </div>
+        <button
+          type="button"
+          id="btn-new-order"
+          class="capitalize mx-4 bg-custom-red text-white text-lg font-semibold py-4 px-6 rounded-full hover:bg-orange-800"
+        >
+          start new order
+        </button>
+      </div>
+      <!-- end confime orders mobile -->
+      <!-- start confime orders -->
+      <div
+        id="Modal-confirme-order"
+        class="fixed max-sm:hidden z-20 flex flex-col left-1/2 top-1/2 -ml-[255px] -mt-[302px] space-y-3 sm:h-fit sm:w-[500px] bg-rose-50 text-center py-5 px-6 rounded-lg col-span-1"
+      >
+        <div class="flex flex-col flex-wrap text-left space-y-3">
+          <img
+            src="/assets/images/icon-order-confirmed.svg"
+            width="30"
+            alt=""
+          />
+          <p class="capitalize text-2xl font-bold w-2/3">order confirmed</p>
+          <span class="text-rose-400 text-xl">We hope you enjoy your food</span>
+        </div>
+        <div class="bg-rose-100 p-2 rounded-md">
+          <div id="orders_desktop" class="h-[300px] overflow-y-scroll"></div>
+          <div class="flex py-4 px-3 justify-between items-center">
+            <span class="text-gray-800 text-sm">Order Total</span>
+            <span id="order-Total-confime" class="text-2xl font-bold">$0</span>
+          </div>
+        </div>
+        <button
+          type="button"
+          id="btn-new-order-desktop"
+          class="capitalize mx-4 bg-custom-red text-white text-lg font-semibold py-2 px-3 rounded-full hover:bg-orange-800"
+        >
+          start new order
+        </button>
+      </div>
+      <!-- end confime orders -->
+      <div
+        id="overlay"
+        class="absolute z-10 hidden w-full h-full top-0 left-0 bg-[#00000078]"
+      ></div>
     </main>
     <script type="module" src="/src/main.js"></script>
   </body>
