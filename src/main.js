@@ -231,7 +231,7 @@ const confirme_order_desktop = (id) => {
   document.body.style.position = "fixed";
   document.getElementById("overlay").style.display = "block";
   document.getElementById(id).style.transition = " .4s";
-  document.getElementById(id).style.transform = "scale(1)";
+  document.getElementById(id).style.transform = "scale(.8)";
   if (OrdersCart.length !== 0) {
     let amount = OrdersCart.map((x) => {
       let { id, quantity } = x;
