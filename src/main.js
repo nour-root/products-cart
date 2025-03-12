@@ -33,7 +33,7 @@ const empty_cart_mobile = document.querySelector(".empty-cart_mobile");
 const btn_new_order = document.querySelector("#btn-new-order");
 const orders_mobile = document.querySelector("#orders_mobile");
 //
-container_products.innerHTML = loader();
+document.body.innerHTML = loader();
 //
 let increment = (id) => {
   let selectItem = id;
@@ -343,7 +343,7 @@ const main = () => {
 };
 new_order();
 new_order_desktop();
-main();
+// main();
 window.increment = increment;
 window.decrement = decrement;
 window.remove_Item = remove_Item;
