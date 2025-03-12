@@ -1,4 +1,4 @@
 const fetchData = () => {
-  return fetch("/data.json");
+  return fetch("/public/data.json");
 };
 export default fetchData;
