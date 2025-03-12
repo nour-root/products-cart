@@ -271,7 +271,7 @@ const confirme_order = (id) => {
       return order_confime_mobile(search, `${quantity}`);
     }).join("");
     total_price_confime_mobile.innerHTML = `$${amount}`;
-    if (OrdersCart.length <= 3) {
+    if (OrdersCart.length <= 2) {
       orders_mobile.classList.remove("overflow-y-scroll");
     } else {
       orders_mobile.classList.add("overflow-y-scroll");
@@ -331,7 +331,7 @@ const main = () => {
       empty_cart_mobile.classList.add("hidden");
       cart.classList.remove("hidden");
       cart_mobile.classList.remove("hidden");
-      if (OrdersCart.length <= 3) {
+      if (OrdersCart.length > 4) {
         Orders_UL_mobile.classList.add("overflow-y-scroll");
       } else {
         Orders_UL_mobile.classList.remove("overflow-y-scroll");
