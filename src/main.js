@@ -168,6 +168,11 @@ let generateCartItems = () => {
     empty_cart.classList.remove("hidden");
     empty_cart_mobile.classList.remove("hidden");
   }
+  if (OrdersCart.length <= 3) {
+    Orders_UL_mobile.classList.remove("overflow-y-scroll");
+  } else {
+    Orders_UL_mobile.classList.add("overflow-y-scroll");
+  }
 };
 let calculater = () => {
   numOrders.innerHTML = OrdersCart.map((x) => x.quantity).reduce(
@@ -190,7 +195,7 @@ let add_to_cart_html = (selectItem) => {
     calculater();
     Total_Price();
     generateCartItems();
-    if (OrdersCart.length <= 4) {
+    if (OrdersCart.length <= 3) {
       Orders_UL_mobile.classList.remove("overflow-y-scroll");
     } else {
       Orders_UL_mobile.classList.add("overflow-y-scroll");
@@ -326,7 +331,7 @@ const main = () => {
       empty_cart_mobile.classList.add("hidden");
       cart.classList.remove("hidden");
       cart_mobile.classList.remove("hidden");
-      if (OrdersCart.length >= 4) {
+      if (OrdersCart.length <= 3) {
         Orders_UL_mobile.classList.add("overflow-y-scroll");
       } else {
         Orders_UL_mobile.classList.remove("overflow-y-scroll");
