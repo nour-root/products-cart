@@ -1,0 +1,6 @@
+{
+    "routes": [
+      { "src": "/data.json", "dest": "/public/data.json" }
+    ]
+  }
+  
