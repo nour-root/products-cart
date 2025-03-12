@@ -346,11 +346,9 @@ const main = () => {
     }
   });
 };
-//
 new_order();
 new_order_desktop();
 main();
-//
 window.increment = increment;
 window.decrement = decrement;
 window.remove_Item = remove_Item;
